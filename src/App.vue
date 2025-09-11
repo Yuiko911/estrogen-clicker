@@ -2,13 +2,13 @@
 import { useUserStore } from '@/stores/userData';
 import { RouterLink, RouterView } from 'vue-router'
 
-const userdata = useUserStore("default")
+const userdata = useUserStore()
 </script>
 
 <template>
   <div id="left-panel">
     <div>
-      <p>Current count is {{ userdata.estro }}</p>
+      <p>Current count is {{ userdata.savedata.estro }}</p>
       <button @click="userdata.increment">Click</button>
     </div>
   </div>

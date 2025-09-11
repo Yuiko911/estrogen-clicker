@@ -1,26 +1,22 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
-// sure
-export const useUserStore = (name) =>
-  defineStore(`store-${name}`, () => {
-    const estro = ref(0)
+export const useUserStore = defineStore('default', () => {
+  const savedata = ref({
+    estro: 0
+  })
+  
+  function increment() {
+    savedata.value.estro++
+  }
 
-    function increment() {
-      estro.value++
-    }
+  function save() {
+    localStorage.setItem('default-estro', JSON.stringify(savedata.value))
+  }
 
-    function saveToLocalStorage() {
-      localStorage.setItem(`save-${name}`, estro.value.toString())
-    }
+  function load() {
+    savedata.value = JSON.parse(localStorage.getItem('default-estro'))
+  }
 
-    function loadFromLocalStorage() {
-      estro.value = localStorage.getItemItem(`save-${name}`)
-    }
-
-    return { estro, increment }
-  })();
-
-
-
-
+  return { savedata, increment, save, load }
+})

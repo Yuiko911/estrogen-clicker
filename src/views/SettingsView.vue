@@ -1,18 +1,22 @@
 <script setup>
-
-import { ref } from "vue";
-
+import { useUserStore } from '@/stores/userData';
+import { ref } from 'vue';
 const username = ref('')
+
+const userdata = useUserStore()
 
 </script>
 
 <template>
     <h2>Settings</h2>
 
-    <input placeholder="username" type="text" v-model="username"> <br>
-    <p>{{ username }}</p>
-    <button>Save</button>
-    <button>Load</button>
+    <div>
+        <input placeholder="username" type="text" v-model="username">
+        <span style="font-style: italic;" v-if="username === ''"> Username can't be empty</span>
+    </div>
+
+    <button @click="userdata.save">Save</button>
+    <button @click="userdata.load">Load</button>
 </template>
 
 <style scoped>
