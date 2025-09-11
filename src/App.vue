@@ -1,34 +1,43 @@
-<script setup lang="ts">
-import { useCounterStore } from '@/stores/counter';
+<script setup>
+import { useUserStore } from '@/stores/userData';
+import { RouterLink, RouterView } from 'vue-router'
 
-const counter = useCounterStore()
+const userdata = useUserStore("default")
 </script>
 
 <template>
-  <div id="left">
+  <div id="left-panel">
     <div>
-      <p>Current count is {{ counter.estro }}</p>
-      <button @click="counter.increment">Click</button>
+      <p>Current count is {{ userdata.estro }}</p>
+      <button @click="userdata.increment">Click</button>
     </div>
   </div>
 
-  <div id="menu">
-    <h1>You did it!</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque unde soluta ut sed blanditiis adipisci. Totam vel quis quaerat labore! Quidem cum minima incidunt sint necessitatibus pariatur, adipisci optio alias.</p>
+  <div id="menu-panel">
+
+    <nav>
+      <RouterLink to="/">Upgrades</RouterLink> |
+      <RouterLink to="/achievements">Achievements</RouterLink> |
+      <RouterLink to="/settings">Settings</RouterLink>
+    </nav>
+
+    <RouterView />
   </div>
 
 </template>
 
 <style scoped>
-
-#left {
+#left-panel, #menu-panel {
   width: 50%;
-  background-color: blanchedalmond;
+  padding: 10px;
 }
 
-#menu {
-  width: 50%;
+#left-panel {
+  background-color: blanchedalmond;
+  text-align: center;
+}
+
+#menu-panel {
   background-color: beige;
 }
-
 </style>
