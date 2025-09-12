@@ -3,11 +3,11 @@ import { defineStore } from 'pinia'
 
 export const useUserStore = defineStore('default', () => {
   const savedata = ref({
-    estro: 0
+    estrogen: 0
   })
-  
+
   function increment() {
-    savedata.value.estro++
+    savedata.value.estrogen++
   }
 
   function save() {

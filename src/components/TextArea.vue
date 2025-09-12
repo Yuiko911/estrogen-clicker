@@ -6,8 +6,8 @@ const userdata = useUserStore()
 
 <template>
     <div id="playarea-text">
-        <p id="total-count">{{ userdata.savedata.estro }} estrogen</p>
-        <p id="persecond-count">{{ userdata.savedata.estro / 7.9 }} estrogen / s</p>
+        <p id="total-count">{{ userdata.savedata.estrogen }} estrogen</p>
+        <p id="persecond-count">{{ userdata.savedata.estrogen / 7.9 }} estrogen / s</p>
     </div>
 </template>
 
