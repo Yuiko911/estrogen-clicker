@@ -1,5 +1,5 @@
 <script setup>
-import { useUserStore } from '@/stores/userData';
+import { useUserStore } from '@/stores/user-data';
 import { ref } from 'vue';
 const username = ref('')
 
