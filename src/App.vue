@@ -1,16 +1,17 @@
 <script setup>
-import { useUserStore } from '@/stores/userData';
+
 import { RouterLink, RouterView } from 'vue-router'
 
-const userdata = useUserStore()
+import TextArea from './components/TextArea.vue';
+import Pill from './components/Pill.vue';
+
+
 </script>
 
 <template>
   <div id="left-panel">
-    <div>
-      <p>Current count is {{ userdata.savedata.estro }}</p>
-      <button @click="userdata.increment">Click</button>
-    </div>
+    <TextArea id="text-area"/>
+    <div id="pill-area"> <Pill/> </div>
   </div>
 
   <div id="menu-panel">
@@ -27,14 +28,33 @@ const userdata = useUserStore()
 </template>
 
 <style scoped>
-#left-panel, #menu-panel {
+#left-panel,
+#menu-panel {
   width: 50%;
   padding: 10px;
 }
 
 #left-panel {
+  display: flex;
+
+  flex-direction: column;
+
   background-color: blanchedalmond;
   text-align: center;
+}
+
+#text-area {
+  height: fit-content;
+}
+
+#pill-area {
+  height: fit-content;
+  
+  flex-grow: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #menu-panel {
