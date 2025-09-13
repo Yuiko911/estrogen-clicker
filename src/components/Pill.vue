@@ -20,6 +20,11 @@ const userdata = useUserStore()
   animation-direction: alternate;
 }
 
+#pill:active {
+  scale: 0.95;
+  transition: scale 0.1s;
+}
+
 @keyframes bobbing {
   from {
     transform: translateY(0%);
