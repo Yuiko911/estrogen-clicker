@@ -8,7 +8,8 @@ const userdata = useUserStore()
 </script>
 
 <template>
-    <h2>Settings</h2>
+
+    <h3>file management</h3>
 
     <div>
         <input placeholder="username" type="text" v-model="username">
