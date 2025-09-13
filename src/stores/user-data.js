@@ -10,16 +10,29 @@ export const useUserStore = defineStore('default', () => {
   const savedata = ref({
     estrogen: 0,
     upgrades: {
-      // Click strength
-      blahaj: 0,
+      shark: 0,
 
-      // Autoclick
-      mountain_game: 0
+      mountain_game: 0,
+
+      interval_reduced: 0,
     }
   })
 
+  // Put in another file probably
+  const produce = () => savedata.value.estrogen += 1 * savedata.value.upgrades.mountain_game
+
+  let interval = computed(() => 1000 / (1 + savedata.value.upgrades.interval_reduced))
+
+  let autoproduction = setInterval(produce, interval.value)
+
+  function updateAutoproduction() {
+    clearInterval(autoproduction)
+    autoproduction = setInterval(produce, interval.value)
+  }
+
+
   const clickstrength = computed(() => {
-    return 1 + savedata.value.upgrades["blahaj"] * 1
+    return 1 + savedata.value.upgrades["shark"] * 1
   })
 
   function increment() {
@@ -29,15 +42,19 @@ export const useUserStore = defineStore('default', () => {
   function buyUpgrade(upgrade) {
     if (savedata.value.upgrades[upgrade] === undefined) {
       console.log(`Upgrade ${upgrade} doesn't exist`)
-      return
+      return false
     }
 
     if (savedata.value.estrogen < gamedata.upgradesprices[upgrade]) {
-      return
+      return false
     }
 
     savedata.value.estrogen -= gamedata.upgradesprices[upgrade]
     savedata.value.upgrades[upgrade]++
+
+    updateAutoproduction()
+
+    return true
   }
 
   const save = () => localStorage.setItem('default-estro', JSON.stringify(savedata.value))

@@ -4,11 +4,30 @@ import UpgradeButton from '@/components/UpgradeButton.vue';
 </script>
 
 <template>
-    i am upgare
-    <UpgradeButton name="Blahaj" target="blahaj" />
-    <UpgradeButton name="Unnamed Mountain Climbing Game" target="mountain_game" />
+
+    <h3>click upgrades</h3>
+    <UpgradeButton target="shark">Shark</UpgradeButton>
+    <button>x1.05 click strength</button>
+    
+    <h3>autoclick upgrades</h3>
+    <UpgradeButton target="mountain_game">Unnamed Mountain Climbing Game</UpgradeButton>
+    <button>Autobuy mountain</button>
+    <button>autoclick click</button>
+
+    <h3>improvements</h3>
+    <button>(0/5) 2x production multiplier</button>
+
+    <br>
+
+    <button>(0/5) Reduce autoclick cooldown</button>
+    <button>(0/5) Better scaling cost</button>
+
+    <br>
+
+    <button>Temporary ^2 to all production (price scales a lot)</button>
+    <button>Autobuy click upgrades</button>
+    <button>Autobuy autoclick upgrades</button>
+    <button>Become cis</button>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

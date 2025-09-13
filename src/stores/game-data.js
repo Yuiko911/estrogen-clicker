@@ -10,14 +10,14 @@ export const useGameStore = defineStore('gamedata', () => {
     }
 
     const upgradesbaseprices = {
-        blahaj: 10,
+        shark: 10,
         mountain_game: 40
     }
 
     const upgradesprices = computed(() => {
         return {
-            blahaj: scaleCost("blahaj", 1.4),
-            mountain_game: scaleCost("mountain_game", 1.4),
+            shark: scaleCost("shark", 1.8),
+            mountain_game: scaleCost("mountain_game", 1.8),
         }
     })
 
