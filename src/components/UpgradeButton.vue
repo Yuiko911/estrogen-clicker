@@ -7,7 +7,6 @@ const userdata = useUserStore()
 const gamedata = useGameStore()
 
 const props = defineProps({
-    name: String,
     image: String,
     target: String
 })
@@ -17,7 +16,7 @@ const props = defineProps({
 <template>
     <div>
         <button @click="userdata.buyUpgrade(target)">
-            {{ userdata.savedata.upgrades[target] }}x {{ props.name }} ({{ gamedata.upgradesprices[target] }})
+            {{ userdata.savedata.upgrades[target] }}x <slot></slot> ({{ gamedata.upgradesprices[target] }})
         </button>
     </div>
 </template>
