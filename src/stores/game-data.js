@@ -11,7 +11,7 @@ export const useGameStore = defineStore('gamedata', () => {
 
     const upgradesbaseprices = {
         shark: 10,
-        mountain_game: 40
+        mountain_game: 50
     }
 
     const upgradesprices = computed(() => {
@@ -21,5 +21,6 @@ export const useGameStore = defineStore('gamedata', () => {
         }
     })
 
+	console.log('gamedata')
     return { upgradesprices }
 })

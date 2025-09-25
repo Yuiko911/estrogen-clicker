@@ -1,5 +1,8 @@
 <script setup>
 import UpgradeButton from '@/components/UpgradeButton.vue';
+import { useUserStore } from '@/stores/user-data';
+
+const userdata = useUserStore()
 
 </script>
 
@@ -28,6 +31,8 @@ import UpgradeButton from '@/components/UpgradeButton.vue';
     <button>Autobuy click upgrades</button>
     <button>Autobuy autoclick upgrades</button>
     <button>Become cis</button>
+
+	<button v-on:click="userdata.logSave">log</button>
 </template>
 
 <style scoped></style>

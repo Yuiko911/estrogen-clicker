@@ -6,6 +6,7 @@ import TextArea from './components/TextArea.vue';
 import Pill from './components/Pill.vue';
 
 
+	console.log('app')
 </script>
 
 <template>
