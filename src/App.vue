@@ -5,8 +5,13 @@ import { RouterLink, RouterView } from 'vue-router'
 import TextArea from './components/TextArea.vue';
 import Pill from './components/Pill.vue';
 
+// 
+//  \    ^^                
+//   )  ( ')  <(meow)        /,
+//  (  /  )       (bloob)>  <'_)=<
+//   \(__)|                  \` 
+//  
 
-	console.log('app')
 </script>
 
 <template>
@@ -16,7 +21,6 @@ import Pill from './components/Pill.vue';
   </div>
 
   <div id="menu-panel">
-
     <nav>
       <RouterLink to="/">Upgrades</RouterLink> |
       <RouterLink to="/achievements">Achievements</RouterLink> |

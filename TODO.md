@@ -1,4 +1,5 @@
 # Graphics
+- PRETTY !!! PLEASE !!!
 - Better visuals for menu
 - Assets
     - ~~Pill~~
@@ -13,15 +14,13 @@
 - Only show upgrades at relevant times
 
 # Gameplay
-- Click strength
+- ~~Click strength~~
 - Autoclickers
-
 - Reduce autoclicker timer
-
 - Stats Page
 
 # Save
-- Figure out a save system
+- ~~Multiple saves save system~~ -> Hook to SettingView.vue
 
 1
 0.5

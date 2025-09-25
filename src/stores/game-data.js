@@ -1,26 +1,38 @@
 import { defineStore } from 'pinia'
-import { computed } from 'vue'
-import { useUserStore } from './user-data'
 
 export const useGameStore = defineStore('gamedata', () => {
-    const userdata = useUserStore()
-
-    function scaleCost(upgrade, scaling) {
-        return Math.floor(upgradesbaseprices[upgrade] * Math.pow(scaling, userdata.savedata.upgrades[upgrade]))
-    }
 
     const upgradesbaseprices = {
         shark: 10,
-        mountain_game: 50
+        clicker: 10,
+        click3: 10,
+
+        mountain_game: 50,
+        sylveon: 50,
+        music_software: 50,
     }
 
-    const upgradesprices = computed(() => {
-        return {
-            shark: scaleCost("shark", 1.8),
-            mountain_game: scaleCost("mountain_game", 1.8),
-        }
-    })
+    const upgradesbasescaling = {
+        shark: 1.8,
+        clicker: 1.8,
+        click3: 1.8,
 
-	console.log('gamedata')
-    return { upgradesprices }
+        mountain_game: 1.8,
+        sylveon: 1.8,
+        music_software: 1.8,
+    }
+
+    const maximprovementscount = {
+        two_times_prod: 5,
+        interval_reduced: 5,
+        better_scaling_cost: 5,
+        temp_square_prod: -1,
+
+        autobuy_click: 1,
+        autobuy_autoclick: 1,
+
+        end_game: -1,
+    }
+
+    return { upgradesbaseprices, upgradesbasescaling, maximprovementscount }
 })

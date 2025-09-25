@@ -1,5 +1,7 @@
 <script setup>
 import UpgradeButton from '@/components/UpgradeButton.vue';
+import ImprovementButton from '@/components/ImprovementButton.vue';
+
 import { useUserStore } from '@/stores/user-data';
 
 const userdata = useUserStore()
@@ -9,30 +11,37 @@ const userdata = useUserStore()
 <template>
 
     <h3>click upgrades</h3>
-    <UpgradeButton target="shark">Shark</UpgradeButton>
-    <button>x1.05 click strength</button>
-    
+        <UpgradeButton target="shark">Shark</UpgradeButton>
+        <UpgradeButton target="clicker">Clicker</UpgradeButton>
+        <UpgradeButton target="click3">Click 3</UpgradeButton>
+
     <h3>autoclick upgrades</h3>
-    <UpgradeButton target="mountain_game">Unnamed Mountain Climbing Game</UpgradeButton>
-    <button>Autobuy mountain</button>
-    <button>autoclick click</button>
-
+        <UpgradeButton target="mountain_game">Unnamed Mountain Climbing Game</UpgradeButton>
+        <UpgradeButton target="sylveon">Sylveon</UpgradeButton>
+        <UpgradeButton target="music_software">Unnamed Music Making Software</UpgradeButton>
+    
     <h3>improvements</h3>
-    <button>(0/5) 2x production multiplier</button>
+        <ImprovementButton target="two_times_prod">2x production multiplier</ImprovementButton>
+        
+        <br>
+        
+        <ImprovementButton target="interval_reduced">Reduce autoclick cooldown</ImprovementButton>
+        <ImprovementButton target="better_scaling_cost">Better scaling cost</ImprovementButton>
+        
+        <br>
+        
+        <ImprovementButton target="temp_square_prod">Temporary ^2 to all production (price scales a lot)</ImprovementButton>
+        <ImprovementButton target="autobuy_click">Autobuy click upgrades</ImprovementButton>
+        <ImprovementButton target="autobuy_autoclick">Autobuy autoclick upgrades</ImprovementButton>
 
-    <br>
+        <ImprovementButton target="end_game">Become cis</ImprovementButton>
 
-    <button>(0/5) Reduce autoclick cooldown</button>
-    <button>(0/5) Better scaling cost</button>
 
-    <br>
+    <h3>debug info</h3>
+    <button v-on:click="userdata.debugInfo['logSave']">log</button>
+    <div>click : {{ userdata.debugInfo['clickS'] }}</div>
+    <div>auto : {{ userdata.debugInfo['produceS'] }}</div>
 
-    <button>Temporary ^2 to all production (price scales a lot)</button>
-    <button>Autobuy click upgrades</button>
-    <button>Autobuy autoclick upgrades</button>
-    <button>Become cis</button>
-
-	<button v-on:click="userdata.logSave">log</button>
 </template>
 
 <style scoped></style>

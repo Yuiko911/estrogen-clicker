@@ -1,6 +1,8 @@
 <script setup>
 import { useUserStore } from '@/stores/user-data';
 
+// TODO: rename file TextArea already taken
+
 const userdata = useUserStore()
 </script>
 
