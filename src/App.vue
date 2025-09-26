@@ -15,54 +15,54 @@ import Pill from './components/Pill.vue';
 </script>
 
 <template>
-  <div id="left-panel">
-    <TextArea id="text-area"/>
-    <div id="pill-area"> <Pill/> </div>
-  </div>
+	<div id="left-panel">
+		<TextArea id="text-area" />
+		<div id="pill-area">
+			<Pill />
+		</div>
+	</div>
+	<div id="menu-panel">
+		<nav>
+			<RouterLink to="/">Upgrades</RouterLink> |
+			<RouterLink to="/achievements">Achievements</RouterLink> |
+			<RouterLink to="/settings">Settings</RouterLink>
+		</nav>
 
-  <div id="menu-panel">
-    <nav>
-      <RouterLink to="/">Upgrades</RouterLink> |
-      <RouterLink to="/achievements">Achievements</RouterLink> |
-      <RouterLink to="/settings">Settings</RouterLink>
-    </nav>
-
-    <RouterView />
-  </div>
-
+		<RouterView />
+	</div>
 </template>
 
 <style scoped>
 #left-panel,
 #menu-panel {
-  width: 50%;
-  padding: 10px;
+	width: 50%;
+	padding: 10px;
 }
 
 #left-panel {
-  display: flex;
+	display: flex;
 
-  flex-direction: column;
+	flex-direction: column;
 
-  background-color: blanchedalmond;
-  text-align: center;
+	background-color: blanchedalmond;
+	text-align: center;
 }
 
 #text-area {
-  height: fit-content;
+	height: fit-content;
 }
 
 #pill-area {
-  height: fit-content;
-  
-  flex-grow: 1;
+	height: fit-content;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	flex-grow: 1;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #menu-panel {
-  background-color: beige;
+	background-color: beige;
 }
 </style>
