@@ -35,24 +35,31 @@ export const useUserStore = defineStore('default', () => {
 		}
 	})
 
+	let isTempSquared = ref(false)
+
 	//////////////
 	// Strength //
 	//////////////
 	const roundToOnePlace = (x) => Number(x.toFixed(1))
 
 	const clickstrength = computed(() => {
-		return roundToOnePlace(
-			(1 + savedata.value.upgrades["shark"]) 
-			* (1 + 0.05 * savedata.value.upgrades["clicker"])
-			* (1 + 0 * savedata.value.upgrades["music_software"]) 
+		return roundToOnePlace((
+			(
+				(1 + savedata.value.upgrades["shark"])
+				* (1 + 0.05 * savedata.value.upgrades["clicker"])
+				* (1 + 0 * savedata.value.upgrades["music_software"])
+			)
+			* Math.pow(2, savedata.value.improvements['two_times_prod'])
+		)
+			** (1 + isTempSquared.value)
 		)
 	})
 
 	const producestrength = computed(() => {
-		return roundToOnePlace(
-			(savedata.value.upgrades["mountain_game"])
-			* (1 + 0.1 * savedata.value.upgrades["sylveon"])
-			+ (clickstrength.value * 0.1 * savedata.value.upgrades["music_software"])
+		return roundToOnePlace((
+			((savedata.value.upgrades["mountain_game"]) * (1 + 0.1 * savedata.value.upgrades["sylveon"]) + (clickstrength.value * 0.1 * savedata.value.upgrades["music_software"]))
+			* Math.pow(2, savedata.value.improvements['two_times_prod'])
+		) ** (1 + isTempSquared.value)
 		)
 	})
 
@@ -62,7 +69,6 @@ export const useUserStore = defineStore('default', () => {
 	function increment() {
 		console.log(savedata.value.estrogen + clickstrength.value)
 		console.log(roundToOnePlace(savedata.value.estrogen + clickstrength.value));
-		
 
 		savedata.value.estrogen = roundToOnePlace(savedata.value.estrogen + clickstrength.value)
 	}
@@ -72,7 +78,7 @@ export const useUserStore = defineStore('default', () => {
 	/////////////////////
 	const produce = () => savedata.value.estrogen = roundToOnePlace(savedata.value.estrogen + producestrength.value)
 
-	let interval = computed(() => 1000 / (1 + savedata.value.improvements.interval_reduced))
+	let interval = computed(() => 1000 / Math.pow(2, savedata.value.improvements['interval_reduced']))
 	let autoproduction = setInterval(produce, interval.value)
 
 	function updateAutoproduction() {
@@ -139,7 +145,6 @@ export const useUserStore = defineStore('default', () => {
 	const improvementsprices = computed(() => {
 		return {
 			two_times_prod: 0,
-			// TODO: Interval not working properly
 			interval_reduced: 0,
 			better_scaling_cost: 0,
 			temp_square_prod: 0,
@@ -165,14 +170,31 @@ export const useUserStore = defineStore('default', () => {
 			return false
 		}
 
-		console.log("buying "+improvement);
+		if (improvement == 'temp_square_prod' && isTempSquared.value) {
+			return false
+		}
 		
+		console.log("buying " + improvement);
+
 		savedata.value.estrogen = roundToOnePlace(savedata.value.estrogen - improvementsprices.value[improvement])
 		savedata.value.improvements[improvement]++
+
+		if (improvement == 'temp_square_prod') {
+			tempSquareProd()
+		}
 
 		updateAutoproduction()
 
 		return true
+	}
+
+	const tempSquareProd = () => {
+		if (isTempSquared.value) return
+
+		isTempSquared.value = true
+		setTimeout(() => {
+			isTempSquared.value = false
+		}, 5 * 1000)
 	}
 
 	////////////
@@ -188,12 +210,14 @@ export const useUserStore = defineStore('default', () => {
 	}
 
 	// Debug
-	const logSave = () => console.log(savedata.value)
-
 	const debugInfo = {
-		'logSave': logSave,
+		'logSave': () => console.log(savedata.value),
+		'giveE': () => savedata.value.estrogen = roundToOnePlace(savedata.value.estrogen + 999999999999999),
+
 		'clickS': clickstrength,
 		'produceS': producestrength,
+
+		'isTempSquared': isTempSquared,
 	}
 
 	return { savedata, increment, upgradesprices, improvementsprices, canBuyUpgrade, buyUpgrade, buyImprovements, save, load, debugInfo }
