@@ -18,6 +18,7 @@
 - Autoclickers
 - Reduce autoclicker timer
 - Stats Page
+- End when e is reached (~1e+21)
 
 # Save
 - ~~Multiple saves save system~~ -> Hook to SettingView.vue

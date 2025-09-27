@@ -1,4 +1,4 @@
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { defineStore } from 'pinia'
 
 import { useGameStore } from './game-data'
@@ -67,9 +67,6 @@ export const useUserStore = defineStore('default', () => {
 	// Actual clicking //
 	/////////////////////
 	function increment() {
-		console.log(savedata.value.estrogen + clickstrength.value)
-		console.log(roundToOnePlace(savedata.value.estrogen + clickstrength.value));
-
 		savedata.value.estrogen = roundToOnePlace(savedata.value.estrogen + clickstrength.value)
 	}
 
@@ -188,6 +185,9 @@ export const useUserStore = defineStore('default', () => {
 		return true
 	}
 
+	/////////////////////////////////
+	// Improvements Implementation //
+	/////////////////////////////////
 	const tempSquareProd = () => {
 		if (isTempSquared.value) return
 
@@ -196,6 +196,18 @@ export const useUserStore = defineStore('default', () => {
 			isTempSquared.value = false
 		}, 5 * 1000)
 	}
+
+	watch(() => savedata.value.estrogen, (value, _) => {
+		console.log('e')
+
+		if (savedata.value.improvements['autobuy_click'] >= 1) if (value >= upgradesprices.value['shark']) buyUpgrade('shark')
+		if (savedata.value.improvements['autobuy_click'] >= 2) if (value >= upgradesprices.value['clicker']) buyUpgrade('clicker')
+		if (savedata.value.improvements['autobuy_click'] >= 3) if (value >= upgradesprices.value['click3']) buyUpgrade('click3')
+		
+		if (savedata.value.improvements['autobuy_autoclick'] >= 1) if (value >= upgradesprices.value['mountain_game']) buyUpgrade('mountain_game')
+		if (savedata.value.improvements['autobuy_autoclick'] >= 2) if (value >= upgradesprices.value['sylveon']) buyUpgrade('sylveon')
+		if (savedata.value.improvements['autobuy_autoclick'] >= 3) if (value >= upgradesprices.value['music_software']) buyUpgrade('music_software')
+	})
 
 	////////////
 	// Saving //

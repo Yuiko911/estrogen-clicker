@@ -28,8 +28,8 @@ export const useGameStore = defineStore('gamedata', () => {
         better_scaling_cost: 5,
         temp_square_prod: -1,
 
-        autobuy_click: 1,
-        autobuy_autoclick: 1,
+        autobuy_click: 3,
+        autobuy_autoclick: 3,
 
         end_game: -1,
     }
