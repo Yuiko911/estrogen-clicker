@@ -11,14 +11,14 @@ const userdata = useUserStore()
 <template>
 
     <h3>click upgrades</h3>
-        <UpgradeButton target="shark">Shark</UpgradeButton>
-        <UpgradeButton target="clicker">Clicker</UpgradeButton>
-        <UpgradeButton target="click3">Click 3</UpgradeButton>
+        <UpgradeButton target="shark" image="/assets/blahaj.png">Shark</UpgradeButton>
+        <UpgradeButton target="clicker" image="@/assets/blahaj.png">Clicker</UpgradeButton>
+        <UpgradeButton target="click3" image="@/assets/blahaj.png">Click 3</UpgradeButton>
 
     <h3>autoclick upgrades</h3>
-        <UpgradeButton target="mountain_game">Unnamed Mountain Climbing Game</UpgradeButton>
-        <UpgradeButton target="sylveon">Sylveon</UpgradeButton>
-        <UpgradeButton target="music_software">Unnamed Music Making Software</UpgradeButton>
+        <UpgradeButton target="mountain_game" image="/assets/mountain-game.png">Unnamed Mountain Climbing Game</UpgradeButton>
+        <UpgradeButton target="sylveon" image="/assets/sylveon.png">Sylveon</UpgradeButton>
+        <UpgradeButton target="music_software" image="@/assets/blahaj.png">Unnamed Music Making Software</UpgradeButton>
     
     <h3>improvements</h3>
         <ImprovementButton target="two_times_prod">2x production multiplier</ImprovementButton>
@@ -35,14 +35,6 @@ const userdata = useUserStore()
         <ImprovementButton target="autobuy_autoclick">Autobuy autoclick upgrades</ImprovementButton>
 
         <ImprovementButton target="end_game">Become cis</ImprovementButton>
-
-
-    <h3>debug info</h3>
-    <button v-on:click="userdata.debugInfo['logSave']">log</button>
-    <button v-on:click="userdata.debugInfo['giveE']">cheat</button>
-    <button v-on:click="console.log(userdata.debugInfo['isTempSquared'])">statussquare</button>
-    <div>click : {{ userdata.debugInfo['clickS'] }}</div>
-    <div>auto : {{ userdata.debugInfo['produceS'] }}</div>
 
 </template>
 

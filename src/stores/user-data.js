@@ -194,7 +194,7 @@ export const useUserStore = defineStore('default', () => {
 		isTempSquared.value = true
 		setTimeout(() => {
 			isTempSquared.value = false
-		}, 5 * 1000)
+		}, 10 * 1000)
 	}
 
 	watch(() => savedata.value.estrogen, (value, _) => {

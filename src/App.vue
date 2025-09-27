@@ -28,7 +28,9 @@ import Pill from './components/Pill.vue';
 			<RouterLink to="/settings">Settings</RouterLink>
 		</nav>
 
-		<RouterView />
+		<div  id="action-panel">
+			<RouterView />
+		</div>
 	</div>
 </template>
 
@@ -42,9 +44,9 @@ import Pill from './components/Pill.vue';
 #left-panel {
 	display: flex;
 
-	flex-direction: column;
+	flex-direction: column; 
 
-	background-color: blanchedalmond;
+	/* background-color: blanchedalmond; */
 	text-align: center;
 }
 
@@ -63,6 +65,19 @@ import Pill from './components/Pill.vue';
 }
 
 #menu-panel {
-	background-color: beige;
+	background-color: white;
+}
+
+#menu-panel > nav {
+	background-color: rgb(255, 237, 237);
+}
+
+#action-panel {
+	border: 3px solid black;
+	border-radius: 5px;
+
+	overflow-y: auto;
+
+	height: 90%;
 }
 </style>

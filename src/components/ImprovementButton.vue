@@ -14,7 +14,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <div>
+    <div id="root">
         <button @click="userdata.buyImprovements(target)">
             ({{ userdata.savedata.improvements[target] }}<span v-if="gamedata.maximprovementscount[target] > 0">/{{ gamedata.maximprovementscount[target] }}</span>) <slot></slot> ({{ userdata.improvementsprices[target] }})
         </button>
@@ -22,4 +22,5 @@ const props = defineProps({
 </template>
 
 <style scoped>
+
 </style>

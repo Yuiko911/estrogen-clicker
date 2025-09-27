@@ -18,6 +18,13 @@ const userdata = useUserStore()
 
     <button @click="userdata.save">Save</button>
     <button @click="userdata.load">Load</button>
+
+    <h3>debug info</h3>
+    <button v-on:click="userdata.debugInfo['logSave']">log</button>
+    <button v-on:click="userdata.debugInfo['giveE']">cheat</button>
+    <button v-on:click="console.log(userdata.debugInfo['isTempSquared'])">statussquare</button>
+    <div>click : {{ userdata.debugInfo['clickS'] }}</div>
+    <div>auto : {{ userdata.debugInfo['produceS'] }}</div>
 </template>
 
 <style scoped>
