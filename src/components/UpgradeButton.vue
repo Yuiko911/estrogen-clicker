@@ -1,32 +1,35 @@
 <script setup>
+import { useGameStore } from "@/stores/game-data";
+import { useUserStore } from "@/stores/user-data";
+import { ref } from "vue";
 
-import { useUserStore } from '@/stores/user-data';
+import UpgradeTooltip from "./UpgradeTooltip.vue";
 
-const userdata = useUserStore()
+const userdata = useUserStore();
+const gamedata = useGameStore();
 
 const props = defineProps({
     image: String,
-    target: String
-})
+    target: String,
+});
 
-let iconimage = props.image || "/assets/placeholder.png"
-
+let iconimage = props.image || "/assets/placeholder.png";
+const isTooltipShown = ref(false);
 </script>
 
 <template>
-    <div id="root" @click="userdata.buyUpgrade(target)">
-        <img :src="iconimage" alt="upgrade icon">
+    <div id="root" @click="userdata.buyUpgrade(target)" @mouseover="isTooltipShown = true" @mouseleave="isTooltipShown = false">
+        <UpgradeTooltip :target="target" id="tooltip" :class="{ 'tooltip-shown': isTooltipShown }"></UpgradeTooltip>
+        <img :src="iconimage" alt="upgrade icon" />
 
         <div id="text">
             <div>
-                <slot></slot>
+                {{ gamedata.upgradesnames[target] }}
             </div>
             <div>{{ userdata.upgradesprices[target] }}</div>
         </div>
 
-        <div id="count">
-            {{ userdata.savedata.upgrades[target] }}x
-        </div>
+        <div id="count">{{ userdata.savedata.upgrades[target] }}x</div>
     </div>
 </template>
 
@@ -41,6 +44,8 @@ let iconimage = props.image || "/assets/placeholder.png"
     margin: 10px;
     padding: 5px;
 
+    position: relative;
+
     /* border: 1px solid black; */
     border-radius: 5px;
 
@@ -54,12 +59,21 @@ let iconimage = props.image || "/assets/placeholder.png"
     /* background-color: rebeccapurple; */
 }
 
-#text {
-    /* background-color: rebeccapurple; */
-}
-
 #count {
     /* background-color: rebeccapurple; */
     margin-left: auto;
+}
+
+#tooltip {
+    visibility: hidden;
+    position: absolute;
+    top: -10%;
+    left: 0;
+
+    transform: translateY(-100%);
+}
+
+.tooltip-shown {
+    visibility: visible !important;
 }
 </style>

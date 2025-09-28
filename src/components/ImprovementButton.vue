@@ -2,6 +2,7 @@
 
 import { useGameStore } from '@/stores/game-data';
 import { useUserStore } from '@/stores/user-data';
+import { computed } from 'vue';
 
 const userdata = useUserStore()
 const gamedata = useGameStore()
@@ -13,10 +14,16 @@ const props = defineProps({
 
 let iconimage = props.image || "/assets/placeholder.png"
 
+const isClickable = computed(() => {
+    if (gamedata.maximprovementscount[props.target] <= 0) return true
+    return userdata.savedata.improvements[props.target] < gamedata.maximprovementscount[props.target]
+})
+
+
 </script>
 
 <template>
-    <div id="root" @click="userdata.buyImprovements(target)">
+    <div id="root" @click="userdata.buyImprovements(target)" :class="{clickable: isClickable}">
         <img :src="iconimage" alt="upgrade icon">
 
         <div id="text">
@@ -27,7 +34,7 @@ let iconimage = props.image || "/assets/placeholder.png"
         </div>
 
         <div id="count">
-            {{ userdata.savedata.improvements[target] }}/{{ gamedata.maximprovementscount[target] }}
+            {{ userdata.savedata.improvements[target] }}<span v-if="gamedata.maximprovementscount[target] > 0">/{{ gamedata.maximprovementscount[target] }}</span>
         </div>
     </div>
 </template>
@@ -56,12 +63,12 @@ let iconimage = props.image || "/assets/placeholder.png"
     /* background-color: rebeccapurple; */
 }
 
-#text {
-    /* background-color: rebeccapurple; */
-}
-
 #count {
     /* background-color: rebeccapurple; */
     margin-left: auto;
+}
+
+.clickable {
+    cursor: pointer;
 }
 </style>
