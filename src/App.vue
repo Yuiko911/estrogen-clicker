@@ -66,10 +66,14 @@ import Pill from './components/Pill.vue';
 
 #menu-panel {
 	background-color: white;
+
+	display: flex;
+	flex-direction: column;
 }
 
 #menu-panel > nav {
 	background-color: rgb(255, 237, 237);
+	height: fit-content;
 }
 
 #action-panel {
@@ -78,6 +82,7 @@ import Pill from './components/Pill.vue';
 
 	overflow-y: auto;
 
+	margin-top: auto;
 	height: 90%;
 }
 </style>
