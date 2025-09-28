@@ -198,8 +198,6 @@ export const useUserStore = defineStore('default', () => {
 	}
 
 	watch(() => savedata.value.estrogen, (value, _) => {
-		console.log('e')
-
 		if (savedata.value.improvements['autobuy_click'] >= 1) if (value >= upgradesprices.value['shark']) buyUpgrade('shark')
 		if (savedata.value.improvements['autobuy_click'] >= 2) if (value >= upgradesprices.value['clicker']) buyUpgrade('clicker')
 		if (savedata.value.improvements['autobuy_click'] >= 3) if (value >= upgradesprices.value['click3']) buyUpgrade('click3')
@@ -214,11 +212,13 @@ export const useUserStore = defineStore('default', () => {
 	////////////
 	const save = (name) => {
 		name = name || 'estro'
-		localStorage.setItem(`default-${name}`, JSON.stringify(savedata.value))
+		localStorage.setItem(`savedata-${name}`, JSON.stringify(savedata.value))
 	}
 	const load = (name) => {
 		name = name || 'estro'
-		savedata.value = JSON.parse(localStorage.getItem(`default-${name}`))
+		savedata.value = JSON.parse(localStorage.getItem(`savedata-${name}`))
+
+		if (savedata.value === null) savedata.value = gamedata.defaultsavedata
 	}
 
 	// Debug
