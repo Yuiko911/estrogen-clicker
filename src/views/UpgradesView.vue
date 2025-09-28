@@ -11,14 +11,14 @@ const userdata = useUserStore()
 <template>
 
     <h3>click upgrades</h3>
-        <UpgradeButton target="shark" image="/assets/blahaj.png">Shark</UpgradeButton>
-        <UpgradeButton target="clicker" image="">Clicker</UpgradeButton>
+        <UpgradeButton target="shark" image="/assets/blahaj.png"></UpgradeButton>
+        <UpgradeButton target="clicker" image="/assets/clicker.png">Clicker</UpgradeButton>
         <UpgradeButton target="click3" image="">Click 3</UpgradeButton>
 
     <h3>autoclick upgrades</h3>
         <UpgradeButton target="mountain_game" image="/assets/mountain-game.png">Unnamed Mountain Climbing Game</UpgradeButton>
         <UpgradeButton target="sylveon" image="/assets/sylveon.png">Sylveon</UpgradeButton>
-        <UpgradeButton target="music_software" image="">Unnamed Music Making Software</UpgradeButton>
+        <UpgradeButton target="music_software" image="/assets/music-soft.png">Unnamed Music Making Software</UpgradeButton>
     
     <h3>improvements</h3>
         <ImprovementButton target="two_times_prod">2x production multiplier</ImprovementButton>
