@@ -14,12 +14,15 @@ const props = defineProps({
 });
 
 let iconimage = props.image || "/assets/placeholder.png";
+
 const isTooltipShown = ref(false);
+const isTooltipTop = props.target == 'shark'
+
 </script>
 
 <template>
     <div id="root" @click="userdata.buyUpgrade(target)" @mouseover="isTooltipShown = true" @mouseleave="isTooltipShown = false">
-        <UpgradeTooltip :target="target" id="tooltip" :class="{ 'tooltip-shown': isTooltipShown }"></UpgradeTooltip>
+        <UpgradeTooltip :target="target" id="tooltip" :class="{ 'tooltip-shown': isTooltipShown, 'tooltip-top': isTooltipTop }"></UpgradeTooltip>
         <img :src="iconimage" alt="upgrade icon" />
 
         <div id="text">
@@ -67,13 +70,22 @@ const isTooltipShown = ref(false);
 #tooltip {
     visibility: hidden;
     position: absolute;
-    top: -10%;
+    top: -15%;
     left: 0;
 
     transform: translateY(-100%);
+
+	z-index: 999;
 }
 
 .tooltip-shown {
     visibility: visible !important;
+}
+
+.tooltip-top {
+	/* bottom: -10%; */
+    left: 0;
+
+    transform: translateY(100%) !important;
 }
 </style>
