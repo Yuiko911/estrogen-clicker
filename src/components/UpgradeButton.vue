@@ -9,13 +9,13 @@ const props = defineProps({
     target: String
 })
 
-const imaghe = "/blahaj.png"
+let iconimage = props.image || "/assets/placeholder.png"
 
 </script>
 
 <template>
     <div id="root" @click="userdata.buyUpgrade(target)">
-        <img :src="image" alt="upgrade icon">
+        <img :src="iconimage" alt="upgrade icon">
 
         <div id="text">
             <div>
