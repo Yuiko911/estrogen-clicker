@@ -1,6 +1,7 @@
 # :pill: Estrogen Clicker
 
-Click estrogen, buy upgrades to get more estrogen, and buy improvements to win the game ! 
+Click estrogen, buy upgrades to get more estrogen, and buy improvements to win the game !  \
+**[Play here](https://estrogen-clicker.vercel.app/)**
 
 ## Features
 - About 10-15 min of gameplay ? 
