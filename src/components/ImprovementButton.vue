@@ -8,67 +8,72 @@ const userdata = useUserStore()
 const gamedata = useGameStore()
 
 const props = defineProps({
-    image: String,
-    target: String
+	image: String,
+	target: String
 })
 
 let iconimage = props.image || "/assets/placeholder.png"
 
 const isClickable = computed(() => {
-    if (gamedata.maximprovementscount[props.target] <= 0) return true
-    return userdata.savedata.improvements[props.target] < gamedata.maximprovementscount[props.target]
+	if (gamedata.maximprovementscount[props.target] <= 0) return true
+	return userdata.savedata.improvements[props.target] < gamedata.maximprovementscount[props.target]
 })
 
 
 </script>
 
 <template>
-    <div id="root" @click="userdata.buyImprovements(target)" :class="{clickable: isClickable}">
-        <img :src="iconimage" alt="upgrade icon">
+	<div id="root" @click="userdata.buyImprovements(target)" :class="{ clickable: isClickable }">
+		<img :src="iconimage" alt="upgrade icon">
 
-        <div id="text">
-            <div>
-                <slot></slot>
-            </div>
-            <div>{{ userdata.improvementsprices[target] }}</div>
-        </div>
+		<div id="text">
+			<div>
+				{{ gamedata.improvementsnames[target] }}
+			</div>
+			<div>{{ userdata.improvementsprices[target] }}</div>
+		</div>
 
-        <div id="count">
-            {{ userdata.savedata.improvements[target] }}<span v-if="gamedata.maximprovementscount[target] > 0">/{{ gamedata.maximprovementscount[target] }}</span>
-        </div>
-    </div>
+		<div id="count">
+			{{ userdata.savedata.improvements[target] }}<span v-if="gamedata.maximprovementscount[target] > 0">/{{
+				gamedata.maximprovementscount[target] }}</span>
+		</div>
+	</div>
 </template>
 
 <style scoped>
 #root {
-    background-color: rgb(233, 233, 233);
+	background-color: rgb(233, 233, 233);
 
-    box-shadow: 0px 5px 8px -5px rgb(81, 88, 88);
+	box-shadow: 0px 5px 8px -5px rgb(81, 88, 88);
 
-    height: 55px;
+	height: 55px;
 
-    margin: 10px;
-    padding: 5px;
+	margin: 10px;
+	padding: 5px;
 
-    /* border: 1px solid black; */
-    border-radius: 5px;
+	/* border: 1px solid black; */
+	border-radius: 5px;
 
-    display: flex;
-    gap: 10px;
+	display: flex;
+	gap: 10px;
 }
 
 #root>img {
-    height: 100%;
+	height: 100%;
 
-    /* background-color: rebeccapurple; */
+	/* background-color: rebeccapurple; */
+}
+
+#text {
+	text-align: left;
 }
 
 #count {
-    /* background-color: rebeccapurple; */
-    margin-left: auto;
+	/* background-color: rebeccapurple; */
+	margin-left: auto;
 }
 
 .clickable {
-    cursor: pointer;
+	cursor: pointer;
 }
 </style>

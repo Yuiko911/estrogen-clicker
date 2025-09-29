@@ -28,7 +28,7 @@ import Pill from './components/Pill.vue';
 			<RouterLink to="/settings">Settings</RouterLink>
 		</nav>
 
-		<div  id="action-panel">
+		<div id="action-panel">
 			<RouterView />
 		</div>
 	</div>

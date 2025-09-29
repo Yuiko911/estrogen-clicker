@@ -40,7 +40,7 @@ const isTooltipTop = props.target == 'shark'
 #root {
     background-color: rgb(233, 233, 233);
 
-    box-shadow: 0px 5px 8px -5px rgb(81, 88, 88);
+    box-shadow: 2px 5px 0px rgb(81, 88, 88, 0.3);
 
     height: 55px;
 
@@ -60,6 +60,10 @@ const isTooltipTop = props.target == 'shark'
     height: 100%;
 
     /* background-color: rebeccapurple; */
+}
+
+#text {
+	text-align: left;
 }
 
 #count {
