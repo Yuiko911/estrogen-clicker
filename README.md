@@ -1,14 +1,13 @@
-# estrogen-clicker-js
+# :pill: Estrogen Clicker
 
-This template should help get you started developing with Vue 3 in Vite.
+Click estrogen, buy upgrades to get more estrogen, and buy improvements to win the game !  \
+**[Play here](https://estrogen-clicker.vercel.app/)**
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Features
+- About 10-15 min of gameplay ? 
+- 17 achievements
+- Many references
+- Save your run locally
 
 ## Project Setup
 
