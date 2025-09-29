@@ -23,9 +23,9 @@ import Pill from './components/Pill.vue';
 	</div>
 	<div id="menu-panel">
 		<nav>
-			<RouterLink to="/">Upgrades</RouterLink> |
-			<RouterLink to="/achievements">Achievements</RouterLink> |
-			<RouterLink to="/settings">Settings</RouterLink>
+			<RouterLink class="nav-panel" to="/">Upgrades</RouterLink>
+			<RouterLink class="nav-panel" to="/achievements">Achievements</RouterLink>
+			<RouterLink class="nav-panel" to="/settings">Settings</RouterLink>
 		</nav>
 
 		<div id="action-panel">
@@ -65,18 +65,38 @@ import Pill from './components/Pill.vue';
 }
 
 #menu-panel {
-	background-color: white;
+	/* background-color: white; */
 
 	display: flex;
 	flex-direction: column;
 }
 
 #menu-panel > nav {
-	background-color: rgb(255, 237, 237);
+	/* background-color: rgb(255, 237, 237); */
 	height: fit-content;
+
+	display: flex;
+
 }
 
+.nav-panel {
+	color: black;
+	text-decoration: none;
+
+	border: 3px solid black;
+	border-radius: 5px;
+
+	padding: 5px 10px;
+	margin-right: 15px;
+}
+
+.nav-panel:nth-child(1) {background-color: #e9ffff;}
+.nav-panel:nth-child(2) {background-color: #f4f8fe;}
+.nav-panel:nth-child(3) {background-color: #fff2fe;}
+
 #action-panel {
+	background-color: white;
+
 	border: 3px solid black;
 	border-radius: 5px;
 
@@ -85,4 +105,5 @@ import Pill from './components/Pill.vue';
 	margin-top: auto;
 	height: 90%;
 }
+
 </style>

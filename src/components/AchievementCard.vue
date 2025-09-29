@@ -12,7 +12,7 @@ const props = defineProps({
 
 <template>
 	<div id="root-card" :title="gamedata.achievementstitles[target]">
-		<img :class="{hidden: done}" :src="gamedata.achievementsassets[target]" alt="">
+		<img :class="{hidden: !done}" :src="gamedata.achievementsassets[target]" alt="">
 	</div>
 </template>
 
@@ -35,7 +35,7 @@ const props = defineProps({
 }
 
 .hidden {
-	filter: grayscale() blur(5px);
+	filter: brightness(0) blur(5px);
 }
 </style>
 

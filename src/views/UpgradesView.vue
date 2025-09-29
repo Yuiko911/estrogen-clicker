@@ -10,17 +10,17 @@ const userdata = useUserStore()
 
 <template>
 	<div id="upgrades-root">
-		<h3>click upgrades</h3>
+		<h3>Click Upgrades</h3>
 		<UpgradeButton target="shark" image="/assets/upgrades/blahaj.png"></UpgradeButton>
 		<UpgradeButton target="clicker" image="/assets/upgrades/clicker.png"></UpgradeButton>
 		<UpgradeButton target="marksman" image="/assets/upgrades/marksman.png"></UpgradeButton>
 	
-		<h3>autoclick upgrades</h3>
+		<h3>Autoclick Upgrades</h3>
 		<UpgradeButton target="mountain_game" image="/assets/upgrades/mountain-game.png"></UpgradeButton>
 		<UpgradeButton target="sylveon" image="/assets/upgrades/sylveon.png"></UpgradeButton>
 		<UpgradeButton target="music_software" image="/assets/upgrades/music-soft.png"></UpgradeButton>
 	
-		<h3>improvements</h3>
+		<h3>Improvements</h3>
 		<ImprovementButton target="two_times_prod" image="/assets/improvement/two_times_mult.png"></ImprovementButton>
 		<ImprovementButton target="interval_reduced" image="/assets/improvement/interval_reduced.png"></ImprovementButton>
 		

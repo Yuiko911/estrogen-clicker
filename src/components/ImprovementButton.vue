@@ -30,12 +30,11 @@ const isClickable = computed(() => {
 			<div>
 				{{ gamedata.improvementsnames[target] }}
 			</div>
-			<div>{{ userdata.improvementsprices[target] }}</div>
+			<div v-if="isClickable">{{ userdata.improvementsprices[target] }}</div>
 		</div>
 
 		<div id="count">
-			{{ userdata.savedata.improvements[target] }}<span v-if="gamedata.maximprovementscount[target] > 0">/{{
-				gamedata.maximprovementscount[target] }}</span>
+			{{ userdata.savedata.improvements[target] }}<span v-if="gamedata.maximprovementscount[target] > 0">/{{ gamedata.maximprovementscount[target] }}</span>
 		</div>
 	</div>
 </template>
