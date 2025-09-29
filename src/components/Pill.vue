@@ -5,7 +5,7 @@ const userdata = useUserStore()
 </script>
 
 <template>
-  <img @click="userdata.increment" src="/assets/estrogen.png" alt="estrogen click" id="pill">
+  <img @click="userdata.increment" src="/assets/estrogen.png" alt="estrogen click" id="pill" draggable="false">
 </template>
 
 <style scoped>
@@ -18,6 +18,8 @@ const userdata = useUserStore()
   animation: 3s ease-in-out 0 bobbing;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+
+  user-select: none;
 }
 
 #pill:active {
