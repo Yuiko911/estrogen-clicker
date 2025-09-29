@@ -5,7 +5,7 @@ const userdata = useUserStore()
 </script>
 
 <template>
-  <img @click="userdata.increment" src="@/assets/estrogen.png" alt="estrogen click" id="pill">
+  <img @click="userdata.increment" src="/assets/estrogen.png" alt="estrogen click" id="pill">
 </template>
 
 <style scoped>
