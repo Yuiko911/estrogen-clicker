@@ -2,6 +2,8 @@
 import { useUserStore } from '@/stores/user-data';
 import { ref } from 'vue';
 
+import AchievementCard from '@/components/AchievementCard.vue';
+
 const userdata = useUserStore()
 
 const achievements = ref(Object.entries(userdata.savedata.achievements))
@@ -22,9 +24,11 @@ const achievements = ref(Object.entries(userdata.savedata.achievements))
 
 		<h3>Achievements</h3>
 		<div id="achievements">
-			<div v-for="achievement in achievements">
-				{{ achievement }}
-			</div>
+			<AchievementCard 
+				v-for="achievement in achievements"
+				:target="achievement[0]"
+				:done="achievement[1]"
+			/>
 		</div>
 	</div>
 </template>
@@ -41,11 +45,10 @@ const achievements = ref(Object.entries(userdata.savedata.achievements))
 	height: 200px;
 }
 
-#stats {
-	/* background-color: aliceblue; */
-}
 
 #achievements {
-	background-color:  antiquewhite;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly
 }
 </style>

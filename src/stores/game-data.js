@@ -152,6 +152,56 @@ export const useGameStore = defineStore('gamedata', () => {
 		end_game: -1,
 	}
 
+	const achievementstitles = {
+		get_1_e: "Have 1 estrogen",
+		get_1e2_e: "Have 100 estrogen",
+		get_1e4_e: "Have 1000 estrogen",
+		get_1e5_e: "Have 10000 estrogen",
+		get_1e6_e: "Have 100000 estrogen",
+		get_1e9_e: "Have 100000000 estrogen",
+		get_1e12_e: "Have 100000000000 estrogen",
+
+		buy_marksman: "Buy a marksman",
+		buy_fl_studio: "Get an FL Studio license",
+
+		greater_autoclick: "Have your autoclick strength surpass your click strength",
+
+		all_production: "Buy all 2x production improvements",
+		all_interval: "Buy all interval reduction improvements",
+		all_automation: "Buy all autobuyers",
+		all_improvements: "Buy all improvements",
+
+		get_10_coins: "Have 10 coins",
+		get_100_coins: "Have 100 coins",
+
+		win: "Win the game",
+	}
+	
+	const achievementsassets = {
+		get_1_e: "/assets/achievements/get_1_e.png",
+		get_1e2_e: "/assets/achievements/get_1e2_e.png",
+		get_1e4_e: "/assets/achievements/get_1e4_e.png",
+		get_1e5_e: "/assets/achievements/get_1e5_e.png",
+		get_1e6_e: "/assets/achievements/get_1e6_e.png",
+		get_1e9_e: "/assets/achievements/get_1e9_e.png",
+		get_1e12_e: "/assets/achievements/get_1e12_e.png",
+	
+		buy_marksman: "/assets/achievements/buy_marksman.png",
+		buy_fl_studio: "/assets/achievements/buy_fl_studio.png",
+	
+		greater_autoclick: "/assets/achievements/greater_autoclick.png",
+	
+		all_production: "/assets/achievements/all_production.png",
+		all_interval: "/assets/achievements/all_interval.png",
+		all_automation: "/assets/achievements/all_automation.png",
+		all_improvements: "/assets/achievements/all_improvements.png",
+	
+		get_10_coins: "/assets/achievements/get_10_coins.png",
+		get_100_coins: "/assets/achievements/get_100_coins.png",
+	
+		win: "/assets/achievements/win.png",
+	}
+
 	return {
 		defaultsavedata,
 		upgradesnames,
@@ -162,6 +212,8 @@ export const useGameStore = defineStore('gamedata', () => {
 		improvementbaseprices,
 		upgradesbasescaling,
 		improvementbasescaling,
-		maximprovementscount
+		maximprovementscount,
+		achievementstitles,
+		achievementsassets
 	}
 })
